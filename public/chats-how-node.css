@@ -126,7 +126,7 @@ button {
 
 .start::after {
   top: 35%;
-  left: -15px;
+  left: -7%;
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);
@@ -136,7 +136,7 @@ button {
   align-self: flex-end;
 }
 .end:after {
-  right: -15px !important;
+  right: -7%;
   top: 10px !important;
   margin-left: 10px;
 }
