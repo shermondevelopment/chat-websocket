@@ -126,6 +126,7 @@
         let dados = { valueCampo };
         socket.emit('mensagem', dados);
         renderMessage(dados);
+        socket.emit('typingMessage', {digit: false});
         $('.campo').value = "";
         scroll();
       });
