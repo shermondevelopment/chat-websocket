@@ -14,7 +14,7 @@ app.set("views", path.resolve(__dirname, "..", "public"));
 app.engine("ejs", require("ejs").renderFile);
 app.set("view engine", "ejs");
 
-app.get("/", (request, response) => {
+app.use("/", (request, response) => {
   response.render("index", { title: "victor" });
 });
 
@@ -33,6 +33,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT || 3002, () => {
+server.listen(process.env.PORT || 3001, () => {
   console.log("application start running");
 });
