@@ -95,7 +95,6 @@
       }
 
       function addPreViewDigit(digite) {
-          console.log(digite);
           const areaChat = $('.area-chat');
           const digit = areaChat.querySelector('.typing');
 
@@ -127,18 +126,18 @@
         let dados = { valueCampo };
         socket.emit('mensagem', dados);
         renderMessage(dados);
+        $('.campo').value = "";
         scroll();
       });
 
       socket.on('mensagem', (mensagem) => {
-          console.log(mensagem);
          renderMessage(mensagem);
       }); 
 
 
       const typingMessage = (event) => {
         console.log(event.keyCode);
-        if(event.keyCode === 13) {
+        if(event.keyCode === 13 || event.keyCode === 8) {
             socket.emit('typingMessage', {digit: false});
         } else {
             socket.emit('typingMessage', {digit: true});

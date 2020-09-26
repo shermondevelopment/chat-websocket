@@ -51,7 +51,7 @@ form {
 
 .area-chat {
   width: 100%;
-  max-width: 70%;
+  max-width: 85%;
   height: 80vh;
   background: #fff;
   border-radius: 10px;
@@ -82,7 +82,7 @@ form {
 
 .area-message {
   width: 100%;
-  max-width: 70%;
+  max-width: 85%;
   height: 10vh;
   background-color: #fff;
   border-radius: 5px;
