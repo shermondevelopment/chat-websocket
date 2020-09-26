@@ -90,8 +90,8 @@
       };
 
 
-      function renderMessage(message) {
-          $(".area-chat").innerHTML += "<div class='chat-message start'>"+message.valueCampo+"</div>";
+      function renderMessage(messages) {
+        $(".area-chat").innerHTML += "<div class='chat-message start'>"+messages.valueCampo+"</div>";
       }
 
       function addPreViewDigit(digite) {
@@ -124,8 +124,9 @@
       $("#form").addEventListener("submit", () => {
         event.preventDefault();
         const valueCampo = $('.campo').value;
-        let dados = { valueCampo, user: 'prop' };
+        let dados = { valueCampo };
         socket.emit('mensagem', dados);
+        renderMessage(dados);
         scroll();
       });
 

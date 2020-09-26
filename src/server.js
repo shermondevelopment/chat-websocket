@@ -1,7 +1,5 @@
 const express = require("express");
 const path = require("path");
-const socketioJwt = require("socketio-jwt");
-const jwt = require("jsonwebtoken");
 const app = express();
 
 const server = require("http").createServer(app);
@@ -14,7 +12,7 @@ app.set("views", path.resolve(__dirname, "..", "public"));
 app.engine("ejs", require("ejs").renderFile);
 app.set("view engine", "ejs");
 
-app.use("/", (request, response) => {
+app.get("/", (request, response) => {
   response.render("index", { title: "victor" });
 });
 
@@ -33,6 +31,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT || 3001, () => {
+server.listen(process.env.PORT || 3002, () => {
   console.log("application start running");
 });
