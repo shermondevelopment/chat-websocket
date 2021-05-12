@@ -159,13 +159,12 @@
 
       function renderMessage(messages, ide) {
         for(texto of messages) {
-          console.log(texto.id);
           if(texto.id !== ide) {
             $(".area-chat").innerHTML += "<div class='chat-message client' style='color: red'>"+texto.valueCampo+"</div>"; 
           }
           
           if(texto.id === ide) {
-            $(".area-chat").innerHTML += "<div class='chat-message start' style='margin-left: 80%'>"+texto.valueCampo+"</div>"; 
+            $(".area-chat").innerHTML += "<div class='chat-message start'>"+texto.valueCampo+"</div>"; 
           }
         }
       }

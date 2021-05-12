@@ -124,6 +124,10 @@ button {
   transform: rotate(90deg);
 }
 
+.start {
+  margin-left: 80%;
+}
+
 .start::after {
   top: 35%;
   left: -7%;
@@ -163,4 +167,10 @@ button {
 }
 .area-message #Capa_1:hover {
   fill: var(--back-chat);
+}
+
+@media only screen and (max-width: 400px) {
+  .start {
+    margin-left: 25% !important;
+  }
 }
