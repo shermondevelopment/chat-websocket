@@ -81,7 +81,7 @@
     <script type="text/javascript" src="chat-script.js"></script>
     <script type="text/javascript">
       var id = 0;
-      const socket = io("http://localhost:3002");
+      const socket = io("https://chat-node-websocket-update.herokuapp.com/");
       socket.on("connect", () => {
         id = socket.id;
         console.log(id);
