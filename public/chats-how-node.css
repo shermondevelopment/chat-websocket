@@ -9,7 +9,7 @@ body {
   margin: 0;
   color: #fff;
   background-color: var(--back-chat);
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -34,7 +34,7 @@ body {
   flex: 1;
   padding: 10px;
   color: var(--back-chat);
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .form-login button {
   background: var(--back-chat);
@@ -111,7 +111,7 @@ button {
 }
 
 .chat-message:after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0px;
   height: 0px;
@@ -149,7 +149,13 @@ button {
   height: calc(100% - 1%);
   flex: 6;
   font-size: 13px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+.client::after {
+  top: 35%;
+  right: -7%;
+  transform: rotate(90deg);
 }
 
 .area-message #Capa_1 {

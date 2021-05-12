@@ -16,18 +16,26 @@ app.get("/", (request, response) => {
   response.render("index", { title: "victor" });
 });
 
-const messages = [];
+var messages = [];
+var identify = {
+  id: 0
+};
 
 io.on("connection", (socket) => {
   socket.emit("previusMessages", messages);
+  identify.id = socket.id
 
   socket.on("typingMessage", (data) => {
     socket.broadcast.emit("message", data);
   });
 
   socket.on("mensagem", (data) => {
-    messages.push(data);
+    messages.push([{...data, id: identify.id}]);
     socket.broadcast.emit("mensagem", data);
+  });
+
+  socket.on("disconnect", (reason) => {
+    messages = [];
   });
 });
 

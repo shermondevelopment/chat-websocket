@@ -80,7 +80,12 @@
 
     <script type="text/javascript" src="chat-script.js"></script>
     <script type="text/javascript">
-      const socket = io();
+      var id = 0;
+      const socket = io("http://localhost:3002");
+      socket.on("connect", () => {
+        id = socket.id;
+        console.log(id);
+      });
       const $ = document.querySelector.bind(document);
 
       function scroll() {
@@ -89,10 +94,6 @@
         scrollBox.scrollBy(0, value);
       };
 
-
-      function renderMessage(messages) {
-        $(".area-chat").innerHTML += "<div class='chat-message start'>"+messages.valueCampo+"</div>";
-      }
 
       function addPreViewDigit(digite) {
           const areaChat = $('.area-chat');
@@ -116,23 +117,24 @@
 
       socket.on('previusMessages', (messages) => {
           for(message of messages) {
-            renderMessage(message);
+            renderMessage(message, id);
           }
       })
 
       $("#form").addEventListener("submit", () => {
         event.preventDefault();
         const valueCampo = $('.campo').value;
-        let dados = { valueCampo };
-        socket.emit('mensagem', dados);
-        renderMessage(dados);
+        let dados = [{ valueCampo, id }];
+        let client = socket.emit('mensagem', dados);
+        renderMessage(dados, id);
         socket.emit('typingMessage', {digit: false});
         $('.campo').value = "";
         scroll();
       });
 
       socket.on('mensagem', (mensagem) => {
-         renderMessage(mensagem);
+        console.log(mensagem, id);
+         renderMessage(mensagem, id);
       }); 
 
 
@@ -148,13 +150,25 @@
 
       socket.on('message', (dados) => {
          if(dados) {
-            console.log(dados);
             scroll();
             addPreViewDigit(dados);
          }
       });
 
       scroll();
+
+      function renderMessage(messages, ide) {
+        for(texto of messages) {
+          console.log(texto.id);
+          if(texto.id !== ide) {
+            $(".area-chat").innerHTML += "<div class='chat-message client' style='color: red'>"+texto.valueCampo+"</div>"; 
+          }
+          
+          if(texto.id === ide) {
+            $(".area-chat").innerHTML += "<div class='chat-message start' style='margin-left: 80%'>"+texto.valueCampo+"</div>"; 
+          }
+        }
+      }
     </script>
   </body>
 </html>
