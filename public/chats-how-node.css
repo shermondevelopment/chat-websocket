@@ -171,10 +171,13 @@ button {
 
 @media only screen and (max-width: 400px) {
   .start {
-    margin-left: 25% !important;
+    margin-left: 15% !important;
   }
 }
 @media only screen and (max-width: 360px) {
+  .start {
+    margin-left: 15% !important;
+  }
   .chat-message {
     max-width: 150px;
   }
