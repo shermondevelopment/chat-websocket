@@ -51,6 +51,7 @@ form {
 
 .area-chat {
   width: 100%;
+  max-width: 85%;
   height: 80vh;
   background: #fff;
   border-radius: 10px;
@@ -170,12 +171,12 @@ button {
 
 @media only screen and (max-width: 400px) {
   .start {
-    margin-left: 15% !important;
+    margin-left: 25% !important;
   }
 }
 @media only screen and (max-width: 360px) {
   .start {
-    margin-left: 15% !important;
+    margin-left: 20% !important;
   }
   .chat-message {
     max-width: 150px;
